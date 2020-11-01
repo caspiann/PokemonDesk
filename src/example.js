@@ -8,5 +8,5 @@ var MyHomeTask = {
     withData: [{ howIDoIt: "I Do It Wel", sameArray: ["string one", 23] }],
 };
 var newArr = [1, 2, 3, 4];
-newArr.reduce(function (total, currentValue) { return total + currentValue; });
+newArr.reduce(function (total, currentValue) { return total + currentValue; }, 0);
 //# sourceMappingURL=example.js.map

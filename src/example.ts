@@ -25,9 +25,9 @@ const MyHomeTask: Task = {
 
 interface MyArray<T> {
     [N: number]: T;
-    reduce(fn: (total: T, currentValue: T, currentIndex: T, arr: Array<T>) => T): T;
+    reduce<U>(fn: (total: U, currentValue: T, currentIndex: number, arr: MyArray<T>) => U, init: U): U;
 }
 
 const newArr: MyArray<number> = [1, 2, 3, 4]
 
-newArr.reduce((total, currentValue) => total + currentValue)
+newArr.reduce((total, currentValue) => { return total + currentValue}, 0)

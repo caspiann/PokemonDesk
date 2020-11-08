@@ -1,0 +1,43 @@
+.list {
+  list-style: none;
+  height: 45px;
+  position: relative;
+  font-style: normal;
+  font-weight: normal;
+  margin-right: 50px;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -8px;
+    height: 1px;
+    width: 1%;
+    background: #000;
+    border: 1px solid #000;
+    border-radius: 6px;
+    opacity: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: opacity, width ease-in-out 0.25s;
+  }
+
+  &:hover,
+  &.activeLink {
+    &:after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+  font-size: 25px;
+  line-height: 29.23px;
+}

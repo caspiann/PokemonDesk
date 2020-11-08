@@ -1,0 +1,15 @@
+.root {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  max-width: 1125px;
+  margin: 0 auto;
+  flex-grow: 0;
+}
+
+.heart {
+  color: red;
+}

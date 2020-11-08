@@ -1,10 +1,13 @@
-.footerWrapper {
-  height: 30px;
-  font-family: 'Karla', sans-serif;
+.root {
+  height: 100px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   justify-items: center;
-  justify-content: space-around;
-  padding-bottom: 10px;
+  width: 100%;
+  max-width: 1125px;
+  margin: 0 auto;
+  flex-grow: 0;
 }
 
 .heart {

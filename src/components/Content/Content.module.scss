@@ -1,4 +1,8 @@
-.content {
-  font-family: 'Karla', sans-serif;
-  height: 100vh;
+.root {
+  display: flex;
+  width: 100%;
+  max-width: 1125px;
+  padding-top: 100px;
+  margin: 0 auto;
+  flex-grow: 1;
 }

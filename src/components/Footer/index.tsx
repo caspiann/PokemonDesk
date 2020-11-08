@@ -3,7 +3,7 @@ import s from './Footer.module.scss';
 
 const Footer = () => {
   return (
-    <div className={s.footerWrapper}>
+    <div className={s.root}>
       <div>
         <span>Make with</span>&nbsp;
         <span className={s.heart}>❤</span>

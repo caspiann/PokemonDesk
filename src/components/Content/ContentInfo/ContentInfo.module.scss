@@ -20,3 +20,17 @@
   letter-spacing: 0;
   text-align: left;
 }
+
+.mainPageBtn {
+  background: #73d677;
+  height: 66px;
+  width: 231px;
+  font-size: 23px;
+
+  border-radius: 11px;
+  padding-bottom: 10px;
+
+  &:active {
+    padding-bottom: 0;
+  }
+}

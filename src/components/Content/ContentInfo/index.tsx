@@ -6,11 +6,11 @@ import Heading from '../../UI/Heading';
 const ContentInfo = () => {
   return (
     <div className={s.root}>
-      <Heading level="1">
+      <Heading level="h1">
         <b>Find</b> all your favorite <b>Pokemon</b>
       </Heading>
-      <Heading level="3">You can know the type of Pokemon, its strengths, disadvantages and abilities</Heading>
-      <Button>See pokemons</Button>
+      <Heading level="h3">You can know the type of Pokemon, its strengths, disadvantages and abilities</Heading>
+      <Button btnStyle={s.mainPageBtn}>See pokemons</Button>
     </div>
   );
 };

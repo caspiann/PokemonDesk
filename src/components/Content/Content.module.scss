@@ -1,8 +1,10 @@
 .root {
   display: flex;
+  justify-content: space-between;
+  justify-items: center;
   width: 100%;
   max-width: 1125px;
-  padding-top: 100px;
+  padding-top: 200px;
   margin: 0 auto;
   flex-grow: 1;
 }

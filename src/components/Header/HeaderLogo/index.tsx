@@ -1,9 +1,10 @@
 import React from 'react';
+import { ReactComponent as LogoSVG } from './assets/logo.svg';
 
 const HeaderLogo = () => {
   return (
     <div>
-      <img src="logo.svg" alt="Logo" />
+      <LogoSVG />
     </div>
   );
 };

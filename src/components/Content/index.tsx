@@ -1,12 +1,8 @@
 import React from 'react';
 import s from './Content.module.scss';
 
-const Content = () => {
-  return (
-    <div className={s.root}>
-      <h1>Some content</h1>
-    </div>
-  );
+const Content: React.FC = ({ children }) => {
+  return <div className={s.root}>{children}</div>;
 };
 
 export default Content;

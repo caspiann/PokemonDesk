@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { A } from 'hookrouter';
 import s from './HeaderMenuItems.module.scss';
 
-const HeaderMenuItem = ({ label, link }: any) => {
+const HeaderMenuItem = ({ link, title }: any) => {
   return (
     <li className={s.list}>
-      <Link to={`${link}`} className={s.link}>
-        {label}
-      </Link>
+      <A className={s.link} href={link}>
+        {title}
+      </A>
     </li>
   );
 };

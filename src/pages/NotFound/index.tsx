@@ -1,21 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { A } from 'hookrouter';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import s from '../RootWrapper.module.scss';
 import Content from '../../components/Content';
 
-const notFound = () => {
+const NotFound = () => {
   return (
     <div className={s.root}>
       <Header />
       <Content>
         <h1>NotFound</h1>
-        <Link to="/">return</Link>
+        <A href="/">return</A>
       </Content>
       <Footer />
     </div>
   );
 };
 
-export default notFound;
+export default NotFound;

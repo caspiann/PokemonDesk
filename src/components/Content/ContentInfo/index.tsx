@@ -1,16 +1,13 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { navigate } from 'hookrouter';
 import s from './ContentInfo.module.scss';
 import Button from '../../UI/Button';
 import Heading from '../../UI/Heading';
 
 const ContentInfo = () => {
-  const history = useHistory();
-
   const handleClick = () => {
-    history.push('/pokedex');
+    navigate('/');
   };
-
   return (
     <div className={s.root}>
       <Heading level="h1">

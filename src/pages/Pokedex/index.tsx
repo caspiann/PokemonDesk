@@ -3,12 +3,15 @@ import s from '../RootWrapper.module.scss';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Content from '../../components/Content';
+import PokemonCard from '../../components/PokemonCard';
 
 const Main = () => {
   return (
     <div className={s.root}>
       <Header />
-      <Content>Pocedex</Content>
+      <Content>
+        <PokemonCard />
+      </Content>
       <Footer />
     </div>
   );

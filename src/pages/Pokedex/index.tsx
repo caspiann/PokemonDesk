@@ -4,13 +4,24 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Content from '../../components/Content';
 import PokemonCard from '../../components/PokemonCard';
+import POKEMONS from '../../data/data';
 
 const Main = () => {
   return (
     <div className={s.root}>
       <Header />
       <Content>
-        <PokemonCard />
+        {POKEMONS.map((pokemon) => {
+          return (
+            <PokemonCard
+              name={pokemon.name}
+              attack={pokemon.stats.attack}
+              defense={pokemon.stats.defense}
+              types={pokemon.types}
+              img={pokemon.img}
+            />
+          );
+        })}
       </Content>
       <Footer />
     </div>

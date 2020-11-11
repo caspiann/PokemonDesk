@@ -11,17 +11,19 @@ const Main = () => {
     <div className={s.root}>
       <Header />
       <Content>
-        {POKEMONS.map((pokemon) => {
-          return (
-            <PokemonCard
-              name={pokemon.name}
-              attack={pokemon.stats.attack}
-              defense={pokemon.stats.defense}
-              types={pokemon.types}
-              img={pokemon.img}
-            />
-          );
-        })}
+        <div className={s.wrapper}>
+          {POKEMONS.map((pokemon) => {
+            return (
+              <PokemonCard
+                name={pokemon.name}
+                attack={pokemon.stats.attack}
+                defense={pokemon.stats.defense}
+                types={pokemon.types}
+                img={pokemon.img}
+              />
+            );
+          })}
+        </div>
       </Content>
       <Footer />
     </div>

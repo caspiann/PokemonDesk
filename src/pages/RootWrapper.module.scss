@@ -6,3 +6,11 @@
   min-height: 100vh;
   overflow: hidden;
 }
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-items: center;
+}

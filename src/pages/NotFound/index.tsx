@@ -1,19 +1,28 @@
 import React from 'react';
-import { A } from 'hookrouter';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import s from '../RootWrapper.module.scss';
-import Content from '../../components/Content';
+import { navigate } from 'hookrouter';
+import s from './NotFound.module.scss';
+import Button from '../../components/UI/Button';
+import TeamRocket from './assets/Team_Rocket_trio.png';
 
 const NotFound = () => {
   return (
     <div className={s.root}>
-      <Header />
-      <Content>
-        <h1>NotFound</h1>
-        <A href="/">return</A>
-      </Content>
-      <Footer />
+      <div className={s.photo}>
+        <p className={s.number}>404</p>
+        <img src={TeamRocket} alt="return" />
+      </div>
+      <div className={s.info}>
+        <p>
+          <span className={s.white}>The rocket team</span> has won this time.
+        </p>
+        <Button
+          btnStyle={s.return}
+          onClick={() => {
+            navigate('/');
+          }}>
+          Return
+        </Button>
+      </div>
     </div>
   );
 };

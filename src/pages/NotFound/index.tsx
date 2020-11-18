@@ -3,6 +3,7 @@ import { navigate } from 'hookrouter';
 import s from './NotFound.module.scss';
 import Button from '../../components/UI/Button';
 import TeamRocket from './assets/Team_Rocket_trio.png';
+import { LinkEnum } from '../../../routes';
 
 const NotFound = () => {
   return (
@@ -18,7 +19,7 @@ const NotFound = () => {
         <Button
           btnStyle={s.return}
           onClick={() => {
-            navigate('/');
+            navigate(LinkEnum.HOME);
           }}>
           Return
         </Button>

@@ -3,6 +3,7 @@ import { navigate } from 'hookrouter';
 import s from './ContentInfo.module.scss';
 import Button from '../../UI/Button';
 import Heading from '../../UI/Heading';
+import { LinkEnum } from '../../../../routes';
 
 const ContentInfo = () => {
   return (
@@ -14,7 +15,7 @@ const ContentInfo = () => {
       <Button
         btnStyle={s.mainPageBtn}
         onClick={() => {
-          navigate('/pokedex');
+          navigate(LinkEnum.POKEDEX);
         }}>
         See pokemons
       </Button>

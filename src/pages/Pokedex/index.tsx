@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from '../RootWrapper.module.scss';
 import Content from '../../components/Content';
 import PokemonCard, { PokemonType } from '../../components/PokemonCard';
 import Heading from '../../components/UI/Heading';
-import usePokemons from '../../hooks/usePokemon';
+import useData from '../../hooks/getData';
 
 export interface IPokemon {
   nameClean: string;
@@ -28,7 +28,19 @@ export interface IPokemon {
 }
 
 const Pokedex = () => {
-  const { data, isLoading, isError } = usePokemons();
+  const [searchValue, setSearchValue] = useState('');
+  const [query, setQuery] = useState({});
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearchValue(e.target.value);
+    setQuery(() => ({
+      ...s,
+      name: e.target.value,
+    }));
+  };
+
+  const { data, isLoading, isError } = useData('getPokemons', query, [searchValue]);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -43,20 +55,22 @@ const Pokedex = () => {
       <Content>
         <div className={s.wrapper}>
           <Heading level="h2">
-            {data.total} <b>Pokemons</b> for you to choose your favorite
+            {!isLoading && data.total} <b>Pokemons</b> for you to choose your favorite
+            <input type="text" value={searchValue} onChange={handleSearchChange} />
           </Heading>
-          {data.pokemons.map((pokemon: IPokemon) => {
-            return (
-              <PokemonCard
-                key={pokemon.id}
-                name={pokemon.name}
-                attack={pokemon.stats.attack}
-                defense={pokemon.stats.defense}
-                types={pokemon.types}
-                img={pokemon.img}
-              />
-            );
-          })}
+          {!isLoading &&
+            data.pokemons.map((pokemon: IPokemon) => {
+              return (
+                <PokemonCard
+                  key={pokemon.id}
+                  name={pokemon.name}
+                  attack={pokemon.stats.attack}
+                  defense={pokemon.stats.defense}
+                  types={pokemon.types}
+                  img={pokemon.img}
+                />
+              );
+            })}
         </div>
       </Content>
     </div>

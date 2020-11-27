@@ -4,6 +4,7 @@ import Content from '../../components/Content';
 import PokemonCard, { PokemonType } from '../../components/PokemonCard';
 import Heading from '../../components/UI/Heading';
 import useData from '../../hooks/getData';
+import Input from '../../components/UI/Input';
 
 export interface IPokemon {
   nameClean: string;
@@ -32,10 +33,8 @@ const Pokedex = () => {
   const [query, setQuery] = useState({});
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
     setSearchValue(e.target.value);
     setQuery(() => ({
-      ...s,
       name: e.target.value,
     }));
   };
@@ -54,10 +53,10 @@ const Pokedex = () => {
     <div className={s.root}>
       <Content>
         <div className={s.wrapper}>
-          <Heading level="h2">
+          <Heading level="h3">
             {!isLoading && data.total} <b>Pokemons</b> for you to choose your favorite
-            <input type="text" value={searchValue} onChange={handleSearchChange} />
           </Heading>
+          <Input value={searchValue} onChange={handleSearchChange} />
           {!isLoading &&
             data.pokemons.map((pokemon: IPokemon) => {
               return (

@@ -6,6 +6,7 @@ import Heading from '../../components/UI/Heading';
 import useData from '../../hooks/getData';
 import Input from '../../components/UI/Input';
 import { IPokemons } from '../../interface/pokemons';
+import useDebounce from '../../hooks/useDebounce';
 
 export interface IPokemon {
   nameClean: string;
@@ -30,12 +31,17 @@ export interface IPokemon {
 }
 
 interface IQuery {
+  limit: number;
   name?: string;
 }
 
 const Pokedex = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [query, setQuery] = useState<IQuery>({});
+  const [query, setQuery] = useState<IQuery>({
+    limit: 20,
+  });
+
+  const debounceValue = useDebounce(searchValue, 500);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -45,7 +51,7 @@ const Pokedex = () => {
     }));
   };
 
-  const { data, isLoading, isError } = useData<IPokemons>('getPokemons', query, [searchValue]);
+  const { data, isLoading, isError } = useData<IPokemons>('getPokemons', query, [debounceValue]);
 
   if (isError) {
     return <div>Something wrong!</div>;

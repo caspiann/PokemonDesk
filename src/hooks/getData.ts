@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import req from '../utils/request';
 
 interface TotalData {
   total: number;
@@ -8,17 +9,16 @@ interface TotalData {
   pokemons: [];
 }
 
-const usePokemons = () => {
+const useData = (endpoint: string, query: object, deps: any[] = []) => {
   const [data, setData] = useState<TotalData>({ count: 0, limit: '', offset: 0, pokemons: [], total: 0 });
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    const getPokemons = async () => {
+    const getData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons?limit=30');
-        const result = await response.json();
+        const result = await req(endpoint, query);
         setData(result);
         setIsError(false);
       } catch (e) {
@@ -28,8 +28,8 @@ const usePokemons = () => {
       }
     };
 
-    getPokemons();
-  }, []);
+    getData();
+  }, deps);
   return {
     data,
     isLoading,
@@ -37,4 +37,4 @@ const usePokemons = () => {
   };
 };
 
-export default usePokemons;
+export default useData;

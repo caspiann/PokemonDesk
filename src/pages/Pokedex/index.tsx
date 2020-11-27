@@ -41,10 +41,6 @@ const Pokedex = () => {
 
   const { data, isLoading, isError } = useData('getPokemons', query, [searchValue]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   if (isError) {
     return <div>Something wrong!</div>;
   }
